@@ -1,0 +1,53 @@
+{
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "schemes": [
+    "http"
+  ],
+  "swagger": "2.0",
+  "info": {
+    "description": "Rest API",
+    "contact": {
+      "email": "test@gmail.com"
+    },
+    "version": "0.1.0"
+  },
+  "host": "localhost:8081",
+  "basePath": "/",
+  "paths": {
+    "/api/books": {
+      "get": {
+        "description": "HTTP status will be returned depending on first search term (a - 400, e - 403, rest - 200)",
+        "tags": [
+          "users"
+        ],
+        "summary": "Returns list of books by provided search parameters.",
+        "operationId": "searchUser",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "search params",
+            "name": "name",
+            "in": "query",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/usersResp"
+          },
+          "400": {
+            "$ref": "#/responses/badReq"
+          },
+          "403": {
+            "$ref": "#/responses/forbidden"
+          }
+        }
+      }
+    }
+  }
+}
